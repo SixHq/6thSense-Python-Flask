@@ -14,11 +14,14 @@ def about():
 
 @app.route("/contact")
 def contact():
-    return "Contact Page"
+    return {
+        "ope":request.args.get("ope")
+    }
 
-@app.route('/post_example', methods=['POST'])
+@app.route('/post_example/', methods=['POST'])
 def post_example():
     # Access the data sent in the request's JSON body
+    print("request coming in is ", request.get_json())
     data = request.get_json()
 
     # Process the data (in this example, we'll simply return it)
